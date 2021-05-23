@@ -14,8 +14,12 @@ $link = mysql_connect(MAQUINA, USUARIO,CLAVE);
 mysql_select_db(DB, $link); 
 $result = mysql_query("SELECT nombre, puesto FROM equipos", $link); 
 
+$name = $result
+
 while ($row = mysql_fetch_array($result)){ 
-	$agi->text2wav("el $row['nombre'] quedo en el puesto numero $row['puesto']");
+	$name = $row['nombre'];
+	$positions = $row['puesto'];
+	$agi->text2wav("el $name quedo en el puesto numero $position");
 	sleep(1);
 } 
 
