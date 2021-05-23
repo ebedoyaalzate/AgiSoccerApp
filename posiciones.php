@@ -7,7 +7,7 @@ require('phpagi.php');
 $agi = new AGI();
 $agi->answer();
 sleep(1);
-$agi->text2wav("Bienvenido");
+$agi->exec_agi("googletts.agi,\"Bienvenido\",es");
 
 require("definiciones.inc");
 $link = mysql_connect(MAQUINA, USUARIO,CLAVE); 
@@ -19,9 +19,13 @@ $name = $result
 while ($row = mysql_fetch_array($result)){ 
 	$name = $row['nombre'];
 	$position = $row['puesto'];
-	$agi->text2wav("el $name quedo en el puesto numero $position");
+	$agi->text2wav("googletts.agi,\"el $name quedo en el puesto numero $position"\",es");
 	sleep(1);
 } 
 
-$agi->text2wav("Gracias por utilizar el sitema de la liga, hasta pronto");
+$agi->exec_agi("googletts.agi,\"Gracias por utilizar el sitema de la liga\",es");
+
+sleep(1);
+$agi->exec_agi("googletts.agi,\"Hasta pronto\",es");
+
 $agi->hangup();
