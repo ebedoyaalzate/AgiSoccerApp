@@ -1,0 +1,8 @@
+
+#crear la base de datos
+
+mysqladmin -uroot -p create futbol
+
+mysql -uroot -p futbol < cargar.sql
+mysql -uroot -p futbol < permisos.sql
+
