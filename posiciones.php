@@ -18,7 +18,7 @@ $name = $result
 
 while ($row = mysql_fetch_array($result)){ 
 	$name = $row['nombre'];
-	$positions = $row['puesto'];
+	$position = $row['puesto'];
 	$agi->text2wav("el $name quedo en el puesto numero $position");
 	sleep(1);
 } 
